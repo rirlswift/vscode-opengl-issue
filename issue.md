@@ -53,14 +53,10 @@ docker build -t rirlswift/vscode-remote-nvidia-issue:latest .
 ``` bash
 xhost +
 ```
-4) Start the container as follows
+3) Start the container as follows
 ``` bash 
 docker run -it --rm  --gpus all \
 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
 rirlswift/vscode-remote-nvidia-issue /bin/bash -c "glxgears"
-```
-3) Run the simple OpenGL program
-``` bash
-  glxgears
 ```
 4) Program runs in container successfully.
