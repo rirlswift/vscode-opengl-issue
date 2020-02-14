@@ -39,6 +39,7 @@ Architecture: 6.1
 ## Replication 
 1) Open THIS issue's folder (uses included container json) in VsCode (starts container)
 3) VsCode reports the following error and is unable to start the container.
+![Container Log](images/issue.png)
 
 
 :loudspeaker: The container json is referencing the publically accessible docker image on [Docker Hub](). 
