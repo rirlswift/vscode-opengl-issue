@@ -1,8 +1,8 @@
 # Issue: Allow use of NVidia OpenGL within VsCode Development Container
 
 ## Description
-We would like to use the NVidia Open GL runtime with VsCode DevContainers.
-When starting a simple OpenGL container, VsCode remote reports 'unrecgonized argument --gpus all'. This flag is required by the runtime.
+We would like to use the Docker NVidia (OpenGL) runtime with VsCode DevContainers.
+When starting a simple OpenGL container, VsCode remote reports 'unrecgonized argument --gpus all'. This flag is required by the Docker runtime.
 
 :loudspeaker: The work-around recommended by [Issue 345](https://github.com/microsoft/vscode-remote-release/issues/345) has no effect.
 

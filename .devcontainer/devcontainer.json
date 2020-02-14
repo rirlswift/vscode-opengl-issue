@@ -1,0 +1,14 @@
+{
+	"name": "VsCode NVidia OpenGL issue.",
+	"context": "..",
+	"image": "rirlswift/vscode-remote-nvidia-issue:latest",
+	"runArgs": [
+        // Bind resources needed for X11 display to work properly.
+        "-v", "/tmp/.X11-unix:/tmp/.X11-unix:rw",
+		"-e", "DISPLAY",
+		// Specify nvidia GPU options.
+        "--gpus all",
+        "--rm"
+    ],
+    "postCreateCommand": "glxgears"
+}
