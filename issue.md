@@ -55,10 +55,9 @@ xhost +
 ```
 4) Start the container as follows
 ``` bash 
-  docker run --it --rm \
-  -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
-  rirlswift/vscode-remote-nvidia-issue \ 
-  /bin/bash 
+docker run -it --rm  --gpus all \
+-v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
+rirlswift/vscode-remote-nvidia-issue /bin/bash -c "glxgears"
 ```
 3) Run the simple OpenGL program
 ``` bash
