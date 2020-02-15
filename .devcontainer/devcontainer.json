@@ -3,11 +3,12 @@
 	"context": "..",
 	"image": "rirlswift/vscode-remote-nvidia-issue:latest",
 	"runArgs": [
+         "--name","nvidia-opengl"
         // Bind resources needed for X11 display to work properly.
         "-v", "/tmp/.X11-unix:/tmp/.X11-unix:rw",
 		"-e", "DISPLAY",
-		// Specify nvidia GPU options.
-        "--gpus all",
+		// Specify nvidia GPU options: seperate argument from its value
+        "--gpus", "all",
         "--rm"
     ],
     "postCreateCommand": "glxgears"
