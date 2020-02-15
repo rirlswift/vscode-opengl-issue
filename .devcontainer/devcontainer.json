@@ -7,7 +7,7 @@
         "-v", "/tmp/.X11-unix:/tmp/.X11-unix:rw",
 		"-e", "DISPLAY",
 		// Specify nvidia GPU options.
-        "--gpus all",
+        "--gpus", "all",
         "--rm"
     ],
     "postCreateCommand": "glxgears"
