@@ -1,10 +1,14 @@
-# Issue: Allow use of NVidia OpenGL within VsCode Development Container
+# Issue: Container image with tag specified causes a startup failure.
 
 ## Description
-We would like to use the Docker NVidia (OpenGL) runtime with VsCode DevContainers.
-When starting a simple OpenGL container, VsCode remote reports 'unrecgonized argument --gpus all'. This flag is required by the Docker runtime.
+We would like to be able to specify a tag for the docker image in the container JSON. This allows us to 'pin' our development stack.
+However, the tag specified on the image setting is not recognized or honored unless it is pulled before launch the container via VsCode (e.g., external pull). We are attempting to use the 'standard' Docker syntax
 
-:loudspeaker: The work-around recommended by [Issue 345](https://github.com/microsoft/vscode-remote-release/issues/345) has no effect.
+``` json
+"image": "rirlswift/vscode-remote-nvidia-issue:latest",
+```
+
+:loudspeaker: Here is the tag is specified as 'lastest' but any valid (per the registry) tag also fails.
 
 ## Context
 ``` bash
@@ -22,18 +26,7 @@ OS: Linux x64 5.3.0-26-generic
 docker --version
 Docker version 19.03.02, build 6a30dfc
 
-# About NVidia Toolkit
-sudo nvidia-container-cli --load-kmods info
-NVRM version: 435.21
-CUDA version: 10.1
 
-Device Index: 0
-Device Minor: 0
-Model: Quadro P3200
-Brand: Quadro
-GPU UUID: [masked for security purposes]
-Bus Location: 00000000:01:00.0
-Architecture: 6.1
 ```
 
 ## Replication 
@@ -46,18 +39,5 @@ Architecture: 6.1
 
 
 ## Expected results 
-1) Build with Dockerfile
-```
-docker build -t rirlswift/vscode-remote-nvidia-issue:latest .
-```
-2) Allow xhost access
-``` bash
-xhost +
-```
-3) Start the container as follows
-``` bash 
-docker run -it --rm  --gpus all \
--v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
-rirlswift/vscode-remote-nvidia-issue /bin/bash -c "glxgears"
-```
-4) Program runs in container successfully.
+1) When a tag is specified for a docker image in the container JSON, VsCode should pull that specific image, and use it to start the container.
+
