@@ -38,3 +38,6 @@ Docker version 19.03.02, build 6a30dfc
 ## Expected results 
 1) When a tag is specified for a docker image in the container JSON, VsCode should pull that specific image, and use it to start the container.
 
+## Workaround
+1) Pull the tagged docker image before running VsCode on container folders.
+2) Helper script could check, pull image with tag, then start VsCode on folder using CLI.
