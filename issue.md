@@ -1,14 +1,13 @@
 # Issue: Container image with tag specified causes a startup failure.
 
 ## Description
-We would like to be able to specify a tag for the docker image in the container JSON. This allows us to 'pin' our development stack.
+We would like to be able to specify a tag for the docker image in the container JSON. 
+This allows us to 'pin' our development stack.
 However, the tag specified on the image setting is not recognized or honored unless it is pulled before launch the container via VsCode (e.g., external pull). We are attempting to use the 'standard' Docker syntax
 
-``` json
-"image": "rirlswift/vscode-remote-nvidia-issue:latest",
+``` bash
+"image": "rirlswift/vscode-remote-nvidia-issue:latest"
 ```
-
-:loudspeaker: Here is the tag is specified as 'lastest' but any valid (per the registry) tag also fails.
 
 ## Context
 ``` bash
@@ -25,8 +24,6 @@ OS: Linux x64 5.3.0-26-generic
 # About Docker
 docker --version
 Docker version 19.03.02, build 6a30dfc
-
-
 ```
 
 ## Replication 
@@ -35,7 +32,7 @@ Docker version 19.03.02, build 6a30dfc
 ![Container Log](images/issue.png)
 
 
-:loudspeaker: The container json is referencing the publically accessible docker image on [Docker Hub](). 
+:loudspeaker: The container json is referencing the publically accessible docker image Docker Hub.
 
 
 ## Expected results 
